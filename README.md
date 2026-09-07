@@ -595,22 +595,6 @@ Key contributions include:
 * Integrating federated simulation using Flower.
 * Aggregating client LoRA adapters into a global model.
 
----
-
-# ⚠️ Limitations
-
-This project is an experimental research prototype and has several limitations.
-
-* The experiments use a relatively small language model (`GPT-Neo-125M`).
-* Federated training is simulated rather than deployed across real independent devices.
-* The current experiments use a small number of clients.
-* The MIA uses a relatively simple loss-threshold attack.
-* Synthetic sensitive data is used for controlled experiments.
-* The optional gradient noise mechanism does not by itself establish a formal differential privacy guarantee.
-* The unlearning approach requires further evaluation against stronger privacy attacks and alternative unlearning baselines.
-* More extensive experiments are needed to establish generalization to larger LLMs and realistic federated environments.
-
----
 
 # 🚧 Future Work
 
@@ -656,26 +640,6 @@ This project was developed as a research-oriented Bachelor’s graduation projec
 **LeakCheck: Dual-Adapter Unlearning for Privacy-Preserving Large Language Models in Federated Settings**
 
 ---
-
-## ⭐ Key Takeaway
-
-LeakCheck demonstrates an experimental approach to **privacy auditing and targeted machine unlearning in federated LLMs**, combining:
-
-```text
-Federated Learning
-        +
-LoRA
-        +
-Privacy Auditing
-        +
-Membership Inference Attacks
-        +
-Dual-Adapter Unlearning
-        +
-Sensitive Data Redaction
-        +
-Adapter-Level Analysis
-```
 
 The goal is not simply to train an LLM, but to investigate **what happens when sensitive information is learned, how that leakage can be measured, and whether targeted unlearning can reduce the resulting privacy risk.**
 
