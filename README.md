@@ -234,41 +234,43 @@ The evaluation records:
 * Mean non-member loss
 
 This allows the privacy leakage to be evaluated at different stages of the pipeline.
-
 # Evaluation Pipeline
-
-LeakCheck evaluates the model across multiple stages:
-
-┌─────────────────────┐
-│ Public-only Training│
-└──────────┬──────────┘
-           │
-           ▼
-     MIA Baseline
-           │
-           ▼
-┌──────────────────────┐
-│ Sensitive Training   │
-│ + Email/Canary Data  │
-└──────────┬───────────┘
-           │
-           ▼
-    MIA Post-Leakage
-           │
-           ▼
-┌──────────────────────┐
-│ Dual-Adapter         │
-│ Unlearning           │
-└──────────┬───────────┘
-           │
-           ▼
-    MIA Post-Unlearning
-           │
-           ▼
-┌──────────────────────┐
-│ Adapter Analysis     │
-│ + Model Evaluation   │
-└──────────────────────┘
+┌─────────────────────────┐
+│   Public-only Training  │
+└────────────┬────────────┘
+             │
+             ▼
+      ┌──────────────┐
+      │ MIA Baseline │
+      └──────┬───────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│     Sensitive Training      │
+│    + Email/Canary Data      │
+└────────────┬────────────────┘
+             │
+             ▼
+     ┌────────────────────┐
+     │ MIA Post-Leakage   │
+     └──────────┬─────────┘
+                │
+                ▼
+┌─────────────────────────────┐
+│      Dual-Adapter           │
+│       Unlearning            │
+└────────────┬────────────────┘
+             │
+             ▼
+   ┌────────────────────────┐
+   │ MIA Post-Unlearning    │
+   └────────────┬───────────┘
+                │
+                ▼
+┌─────────────────────────────┐
+│      Adapter Analysis       │
+│      + Model Evaluation     │
+└─────────────────────────────┘
 # 🧹 Dual-Target Unlearning
 
 The unlearning process computes separate gradients for:
