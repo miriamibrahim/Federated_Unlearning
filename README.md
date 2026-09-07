@@ -235,7 +235,7 @@ The evaluation records:
 
 This allows the privacy leakage to be evaluated at different stages of the pipeline.
 
-# 🔬 Evaluation Pipeline
+# Evaluation Pipeline
 
 LeakCheck evaluates the model across multiple stages:
 
@@ -269,7 +269,6 @@ LeakCheck evaluates the model across multiple stages:
 │ Adapter Analysis     │
 │ + Model Evaluation   │
 └──────────────────────┘
-
 # 🧹 Dual-Target Unlearning
 
 The unlearning process computes separate gradients for:
