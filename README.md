@@ -235,42 +235,15 @@ The evaluation records:
 
 This allows the privacy leakage to be evaluated at different stages of the pipeline.
 # Evaluation Pipeline
-┌─────────────────────────┐
-│   Public-only Training  │
-└────────────┬────────────┘
-             │
-             ▼
-      ┌──────────────┐
-      │ MIA Baseline │
-      └──────┬───────┘
-             │
-             ▼
-┌─────────────────────────────┐
-│     Sensitive Training      │
-│    + Email/Canary Data      │
-└────────────┬────────────────┘
-             │
-             ▼
-     ┌────────────────────┐
-     │ MIA Post-Leakage   │
-     └──────────┬─────────┘
-                │
-                ▼
-┌─────────────────────────────┐
-│      Dual-Adapter           │
-│       Unlearning            │
-└────────────┬────────────────┘
-             │
-             ▼
-   ┌────────────────────────┐
-   │ MIA Post-Unlearning    │
-   └────────────┬───────────┘
-                │
-                ▼
-┌─────────────────────────────┐
-│      Adapter Analysis       │
-│      + Model Evaluation     │
-└─────────────────────────────┘
+```mermaid
+flowchart TD
+    A["Public-only Training"] --> B["MIA Baseline"]
+    B --> C["Sensitive Training<br/>+ Email/Canary Data"]
+    C --> D["MIA Post-Leakage"]
+    D --> E["Dual-Adapter Unlearning"]
+    E --> F["MIA Post-Unlearning"]
+    F --> G["Adapter Analysis<br/>+ Model Evaluation"]
+```
 # 🧹 Dual-Target Unlearning
 
 The unlearning process computes separate gradients for:
